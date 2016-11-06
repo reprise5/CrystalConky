@@ -1,4 +1,5 @@
 #!/usr/bin/env xdg-open
+
 [Desktop Entry]
 Name=GraphiteConk
 GenericName=GraphiteConk
@@ -9,4 +10,4 @@ Terminal=false
 StartupNotify=false
 Type=Application
 Icon=/home/reprise/Dropbox/3 Photos/Shortcut Icons/conk.png
-Name[en_US]=GraphiteConk.desktop
+Name[en_US]=CrystalConk.desktop
