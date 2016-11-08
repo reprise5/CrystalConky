@@ -52,7 +52,7 @@ uppercase no
 
 #=============================================SUMMARY===============================================
 TEXT
-$alignc${font Santana:bold:size=8}Reprise - $nodename
+$alignc${font Santana:bold:size=8}${user_names} - $nodename
 ${color #FA9600}${font Santana:bold:size=10}SYSTEM ${hr 2}
 ${color #0196FA}${font Santana:normal:size=8}
 Host:$alignr$nodename
