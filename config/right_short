@@ -1,0 +1,85 @@
+# -- ======================================================================= --
+# --  Theme: Crystal Conky                                                   --
+# --  Module: right                                                          --
+# --  acquired from Reddhawk, Edited & Expanded by Reprise5                  --
+# -- ======================================================================= --
+
+# - Conky settings - #
+
+update_interval 1.0
+total_run_times 0
+net_avg_samples 1
+cpu_avg_samples 1
+imlib_cache_size 0
+double_buffer yes
+no_buffers yes
+
+# - Text settings - #
+
+use_xft yes
+xftfont Sans:size=8
+xftalpha 1
+override_utf8_locale yes
+text_buffer_size 2048
+
+# - Window specifications - #
+
+own_window_class Conky
+own_window yes
+own_window_type normal
+own_window_argb_visual yes
+own_window_argb_value 180
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+double_buffer yes
+minimum_size 200 200
+maximum_width 250
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders yes
+default_color white
+default_shade_color black
+default_outline_color white
+#Heading-color: #FA9600
+#Secondary-default-color: #0196FA
+alignment top_right
+gap_x 10
+gap_y 30
+no_buffers yes
+uppercase no
+
+TEXT
+#===============================================CLOCK===============================================                                
+${color #FA9600}${goto 18}${voffset 7}${font Digital Readout Thick Upright:size=40}${time %k}${voffset -10}${goto 73}:${voffset 10}${goto 90}${time %M}${voffset -10}${goto 145}:${voffset 10}${goto 162}${time %S}${font}
+#=============================================BATTERY===============================================
+${font monospace:bold:size=10}${color FA9600}BATTERY ${hr 2}
+${color #0196FA}${font Santana:normal:size=8}Time ${battery_time BAT0}$alignr Remaining: ${battery_percent BAT0}%
+${if_match ${battery_percent BAT0} <=25}${color red}$battery_bar ${endif}  ${if_match ${battery_percent BAT0} >25}${color green}$battery_bar ${endif}
+#===============================================LOAD================================================
+
+${font monospace:bold:size=10}${color FA9600}AVG LOAD${hr 2}${color #0196FA}${color #0196FA}
+${font Santana:normal:size=8}${cpugraph cpu0}
+Core 1: ${cpu cpu1}% ${cpubar cpu1}
+#==========================================MEMORY===================================================
+
+${color #FA9600}${font Santana:bold:size=10}MEMORY ${hr 2}
+${color #0196FA}${font Santana:normal:size=8}RAM $alignc $mem / $memmax $alignr $memperc%
+$membar
+#=========================================DISK=USAGE================================================
+#Use format:
+#${color}Disk: ${fs_used /path/disk} of ${fs_size /path/disk} Used
+
+${color #FA9600}${font Santana:bold:size=10}DISKS ${hr 2}
+# anyone's home partition
+${color #0196FA}${font Santana:normal:size=8}/ $alignc ${fs_used /} / ${fs_size /} $alignr ${fs_used_perc /}%
+${fs_bar /}
+#My Attic Partition:
+#You must change this to reflect your own desired partitions or drives.  this is specific to my Attic partition.
+${font Santana:normal:size=8}Attic $alignc ${fs_used /media/reprise/Attic} / ${fs_size /media/reprise/Attic} $alignr ${fs_used_perc /media/reprise/Attic}%
+${fs_bar /media/reprise/Attic}
+#~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ r e m o v a b l e ~ m e d i a ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+#Used for removable stuff like USB.. Hard coded mine in.
+${if_mounted /media/reprise/REPRISEUFD3}${font Santana:normal:size=8}REPRISEUFD3 $alignc ${fs_used /media/reprise/REPRISEUFD3} / ${fs_size /media/reprise/REPRISEUFD3} $alignr ${fs_used_perc /media/reprise/REPRISEUFD3}%
+${fs_bar /media/reprise/REPRISEUFD3}${endif}
