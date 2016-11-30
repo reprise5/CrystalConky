@@ -72,13 +72,13 @@ ${font monospace:bold:size=10}${color FA9600}LOAD${hr 2}${color #0196FA}${color 
 #${font Santana:bold:size=8}${execi 1000 cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //'| uniq}${hr 2}
 ${font Santana:bold:size=8}Intel Core2-Q9000 @ 2.00 Ghz
 #${execi 300 sensors | grep temp1 | cut --characters=15,16,17}°C
-${font Santana:normal:size=8}${cpugraph cpu0}
-Core 1: ${cpu cpu0}% ${cpubar cpu0}
 ${font Santana:normal:size=8}${cpugraph cpu1}
-Core 2: ${cpu cpu1}% ${cpubar cpu1}
+Core 1: ${cpu cpu0}% ${cpubar cpu0}
 ${font Santana:normal:size=8}${cpugraph cpu2}
-Core 3: ${cpu cpu2}% ${cpubar cpu2}
+Core 2: ${cpu cpu1}% ${cpubar cpu1}
 ${font Santana:normal:size=8}${cpugraph cpu3}
+Core 3: ${cpu cpu2}% ${cpubar cpu2}
+${font Santana:normal:size=8}${cpugraph cpu4}
 Core 4: ${cpu cpu3}% ${cpubar cpu3}
 #==========================================MEMORY===================================================
 
