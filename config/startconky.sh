@@ -8,9 +8,6 @@ cd "$current"
 
 #conky -c ./nameOfModule
 #conky -c ./temp-rc   <<integrated into right-rc.  But you can use this module seperqtely if you'd like. just uncomment it.'
-#pick which you want by unhashing it.
-conky -c ./right #&  if adding more modules AT ONCE, unhash the & symbol, and add the names of your modules below.
-#conky -c ./right_light
-#conky -c ./right_dark
-#conky -c ./right-short
+conky -c ./right-rc #&  if adding more modules AT ONCE, unhash the & symbol, and add the names of your modules below in same format.
+
 
