@@ -1,7 +1,6 @@
 # -- ======================================================================= --
 # --  Theme: Crystal Conky                                                   --
-# --  Module: right_dark                                                     --
-# --  The same format as "right", but with a uniform dark grey color scheme. --
+# --  Module: right                                                          --
 # --  acquired from Reddhawk, Edited & Expanded by Reprise5                  --
 # -- ======================================================================= --
 
@@ -36,12 +35,12 @@ own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 double_buffer yes
 minimum_size 200 200
 maximum_width 250
-draw_shades no
+draw_shades yes
 draw_outline no
 draw_borders no
 draw_graph_borders yes
-default_color 5F5F5F
-default_shade_color blue
+default_color white
+default_shade_color black
 default_outline_color white
 #Heading Color: #FA9600
 #New Default Color: #0196FA
@@ -53,32 +52,33 @@ uppercase no
 
 #=============================================SUMMARY===============================================
 TEXT
-$alignc${font Santana:bold:size=8}${user_names} - $nodename
+$alignc${font Santana:bold:size=8}
 ${color}${font Santana:bold:size=10}SYSTEM ${hr 2}${color}${font Santana:normal:size=8}
 Host:$alignr$nodename
 Uptime:$alignr$uptime
 Battery %: $alignr${battery_percent BAT0}%
+#Batt State: $battery_state
 Kernel: $alignr$kernel
 File System: $alignr${fs_type}
 #=============================================BATTERY===============================================
 ${font monospace:bold:size=10}${color}BATTERY ${hr 2}
 ${color}${font Santana:normal:size=8}Time ${battery_time BAT0}$alignr Remaining: ${battery_percent BAT0}%
-${if_match ${battery_percent BAT0} <=25}${color red}$battery_bar ${endif}  ${if_match ${battery_percent BAT0} >25}${color green}$battery_bar ${endif}
+${if_match ${battery_percent BAT0} <=15}${color red}$battery_bar ${endif} ${if_match ${battery_percent BAT0} <=30}${color yellow}$battery_bar ${endif} ${if_match ${battery_percent BAT0} >30}${color green}$battery_bar ${endif}
 #===============================================CLOCK===============================================                                
-${color}${goto 18}${voffset 7}${font Digital Readout Thick Upright:size=40}${time %k}${voffset -10}${goto 73}:${voffset 10}${goto 90}${time %M}${voffset -10}${goto 145}:${voffset 10}${goto 162}${time %S}${font}
+${color #3B6B31}${goto 18}${voffset 7}${font Digital Readout Thick Upright:size=40}${time %k}${voffset -10}${goto 73}:${voffset 10}${goto 90}${time %M}${voffset -10}${goto 145}:${voffset 10}${goto 162}${time %S}${font}
 #===============================================LOAD================================================
 
 ${font monospace:bold:size=10}${color}LOAD${hr 2}${color}${color}
 #${font Santana:bold:size=8}${execi 1000 cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //'| uniq}${hr 2}
-${font Santana:bold:size=8}Intel Core2-Q9000 @ 2.00 Ghz
 #${execi 300 sensors | grep temp1 | cut --characters=15,16,17}°C
-${font Santana:normal:size=8}${cpugraph cpu0}
-Core 1: ${cpu cpu1}% ${cpubar cpu1}
+#CPU 0 is reserved for *average* core load and doesn't point to actual physical core 0.
 ${font Santana:normal:size=8}${cpugraph cpu1}
-Core 2: ${cpu cpu2}% ${cpubar cpu2}
+Core 1: ${cpu cpu1}% ${cpubar cpu1}
 ${font Santana:normal:size=8}${cpugraph cpu2}
-Core 3: ${cpu cpu3}% ${cpubar cpu3}
+Core 2: ${cpu cpu2}% ${cpubar cpu2}
 ${font Santana:normal:size=8}${cpugraph cpu3}
+Core 3: ${cpu cpu3}% ${cpubar cpu3}
+${font Santana:normal:size=8}${cpugraph cpu4}
 Core 4: ${cpu cpu4}% ${cpubar cpu4}
 #==========================================MEMORY===================================================
 
@@ -98,10 +98,14 @@ ${fs_bar /}
 ${font Santana:normal:size=8}Attic $alignc ${fs_used /media/reprise/Attic} / ${fs_size /media/reprise/Attic} $alignr ${fs_used_perc /media/reprise/Attic}%
 ${fs_bar /media/reprise/Attic}
 #~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ r e m o v a b l e ~ m e d i a ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-#Used for removable stuff like USB.. Hard coded mine in.
-${if_mounted /media/reprise/REPRISEUFD3}${font Santana:normal:size=8}REPRISEUFD3 $alignc ${fs_used /media/reprise/REPRISEUFD3} / ${fs_size /media/reprise/REPRISEUFD3} $alignr ${fs_used_perc /media/reprise/REPRISEUFD3}%
-${fs_bar /media/reprise/REPRISEUFD3}${endif}
-
+#${if_mounted /media/reprise/REPRISEUFD3}${font Santana:normal:size=8}REPRISEUFD3 $alignc ${fs_used /media/reprise/REPRISEUFD3} / ${fs_size /media/reprise/REPRISEUFD3} $alignr ${fs_used_perc /media/reprise/REPRISEUFD3}%
+#${fs_bar /media/reprise/REPRISEUFD3}${endif}
+##HANSEN, MP# player, FiiO X1
+#${if_mounted /media/reprise/HANSEN}${font Santana:normal:size=8}HANSEN $alignc ${fs_used /media/reprise/HANSEN} / ${fs_size /media/reprise/HANSEN} $alignr ${fs_used_perc /media/reprise/HANSEN}%
+#${fs_bar /media/reprise/HANSEN}${endif}
+##Windows10 Partition
+#${if_mounted /media/reprise/Windows10}${font Santana:normal:size=8}Windows10 $alignc ${fs_used /media/reprise/Windows10} / ${fs_size /media/reprise/Windows10} $alignr ${fs_used_perc /media/reprise/Windows10}%
+#${fs_bar /media/reprise/Windows10}${endif}
 #=========================================NETWORK=LOAD===============================================
 ${color}${if_up wlan0}${voffset -1}${voffset -7}${font Santana:bold:size=8}WLAN0 LOAD${hr 2}${voffset 7}
 ${color}${font Santana:normal:size=8}${voffset 5}ESSID: $alignr ${wireless_essid wlan0}
@@ -125,7 +129,10 @@ ${color}${font Santana:normal:size=8}Local address: $alignr${addr wlan0}
 ${color}${font Santana:normal:size=8}Public address: ${alignr}${execi 1000 wget http://checkip.dyndns.org/ -q -O - | grep -Eo '\<[[:digit:]]{1,3}(\.[[:digit:]]{1,3}){3}\>'}
 #=====================================TEMPERATURE===================================================
 ${color}${font Santana:bold:size=8}Temperature ${hr 2}
-${color}${font Santana:normal:size=8}CPU: ${alignr} ${exec sensors | grep 'Physical id 0' | cut -c18-21}C
+#this is reddhawk's CPU in Celcius edited by reprise. under it is CPU temp in Fahrenheit by reprise.
+#${color}${font Santana:normal:size=8}CPU: ${alignr} ${exec sensors | grep 'Physical id 0' | cut -c18-21}C
+${color}${font Santana:normal:size=8}CPU: ${alignr} ${execi 2 acpi -t -f | grep 2: | awk '{print $4}'}°F
+HDD:${alignr}${hddtemp /dev/sda}
 #=====================================TOP=MEM-USERS=================================================
 #${color}${font Santana:bold:size=8}Top Memory Users: ${hr 2}${color}
 #${top_mem name 1} ${alignr}${top_mem mem 1}
