@@ -38,3 +38,9 @@ Icon= ...   : Change this path if you want to use the icon provided in this repo
 Once you're done editing the desktop entry, put the file into /usr/share/applications.  it will then appear as an executable icon in your application drawers.
 
 More about desktop entries are on [freedesktop.org](https://standards.freedesktop.org/desktop-entry-spec/latest/).
+
+### Screenshots
+
+#####rightrc
+
+![alt tag](https://github.com/reprise5/CrystalConky/blob/master/rightrc-screenshot.png)
