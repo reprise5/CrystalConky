@@ -2,7 +2,7 @@
 A fork of Graphite Conky, which isn't on GitHub.  
 This conky is a sidebar that shows various things such as :
   * System summary
-    *host, uptime, battery %, Kernel version, and Filesystem.
+    * host, uptime, battery %, Kernel version, and Filesystem.
   * Battery bar that changes color based on your battery's charge.
   * Clock
   * CPU Load (%, graphs, and bars)
