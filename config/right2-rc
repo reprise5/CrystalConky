@@ -33,7 +33,7 @@ own_window_transparent yes
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 
 double_buffer yes
-minimum_size 200 200
+minimum_size  200
 maximum_width 250
 draw_shades yes
 draw_outline no
@@ -55,17 +55,13 @@ TEXT
 $alignc${font Santana:bold:size=8}
 ${color}${font Santana:bold:size=10}SYSTEM ${hr 2}${color}${font Santana:normal:size=8}
 Host:$alignr$nodename
-Uptime:$alignr$uptime
-Battery %: $alignr${battery_percent BAT0}%
-#Batt State: $battery_state
+Domain: $alignr Conundrum
+OS: $alignr Centos7
 Kernel: $alignr$kernel
+Uptime:$alignr$uptime
 File System: $alignr${fs_type}
-#=============================================BATTERY===============================================
-${font monospace:bold:size=10}${color}BATTERY ${hr 2}
-${color}${font Santana:normal:size=8}Time ${battery_time BAT0}$alignr Remaining: ${battery_percent BAT0}%
-${if_match ${battery_percent BAT0} <=15}${color red}$battery_bar ${endif} ${if_match ${battery_percent BAT0} <=30}${color yellow}$battery_bar ${endif} ${if_match ${battery_percent BAT0} >30}${color green}$battery_bar ${endif}
 #===============================================CLOCK===============================================                                
-${color #3B6B31}${goto 18}${voffset 7}${font Digital Readout Thick Upright:size=40}${time %k}${voffset -10}${goto 73}:${voffset 10}${goto 90}${time %M}${voffset -10}${goto 145}:${voffset 10}${goto 162}${time %S}${font}
+${goto 18}${voffset 7}${font Digital Readout Thick Upright:size=40}${time %k}${voffset -10}${goto 73}:${voffset 10}${goto 90}${time %M}${voffset -10}${goto 145}:${voffset 10}${goto 162}${time %S}${font}
 #===============================================LOAD================================================
 
 ${font monospace:bold:size=10}${color}LOAD${hr 2}${color}${color}
@@ -76,10 +72,6 @@ ${font Santana:normal:size=8}${cpugraph cpu1}
 Core 1: ${cpu cpu1}% ${cpubar cpu1}
 ${font Santana:normal:size=8}${cpugraph cpu2}
 Core 2: ${cpu cpu2}% ${cpubar cpu2}
-${font Santana:normal:size=8}${cpugraph cpu3}
-Core 3: ${cpu cpu3}% ${cpubar cpu3}
-${font Santana:normal:size=8}${cpugraph cpu4}
-Core 4: ${cpu cpu4}% ${cpubar cpu4}
 #==========================================MEMORY===================================================
 
 ${color}${font Santana:bold:size=10}MEMORY ${hr 2}
@@ -99,23 +91,15 @@ ${fs_bar /}
 #You must change this to reflect your own desired partitions or drives.  this is specific to my Attic partition.
 ${font Santana:normal:size=8}Attic $alignc ${fs_used /media/reprise/Attic} / ${fs_size /media/reprise/Attic} $alignr ${fs_used_perc /media/reprise/Attic}%
 ${fs_bar /media/reprise/Attic}
-#~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ r e m o v a b l e ~ m e d i a ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-#${if_mounted /media/reprise/REPRISEUFD3}${font Santana:normal:size=8}REPRISEUFD3 $alignc ${fs_used /media/reprise/REPRISEUFD3} / ${fs_size /media/reprise/REPRISEUFD3} $alignr ${fs_used_perc /media/reprise/REPRISEUFD3}%
-#${fs_bar /media/reprise/REPRISEUFD3}${endif}
-##HANSEN, MP# player, FiiO X1
-#${if_mounted /media/reprise/HANSEN}${font Santana:normal:size=8}HANSEN $alignc ${fs_used /media/reprise/HANSEN} / ${fs_size /media/reprise/HANSEN} $alignr ${fs_used_perc /media/reprise/HANSEN}%
-#${fs_bar /media/reprise/HANSEN}${endif}
-##Windows10 Partition
-#${if_mounted /media/reprise/Windows10}${font Santana:normal:size=8}Windows10 $alignc ${fs_used /media/reprise/Windows10} / ${fs_size /media/reprise/Windows10} $alignr ${fs_used_perc /media/reprise/Windows10}%
-#${fs_bar /media/reprise/Windows10}${endif}
+
 #=========================================NETWORK=LOAD===============================================
-${color}${if_up wlan0}${voffset -1}${voffset -7}${font Santana:bold:size=8}WLAN0 LOAD${hr 2}${voffset 7}
-${color}${font Santana:normal:size=8}${voffset 5}ESSID: $alignr ${wireless_essid wlan0}
-Connection quality: $alignr ${wireless_link_qual_perc wlan0}%
-${downspeedgraph wlan0}
-DLS:${downspeed wlan0} $alignr total: ${totaldown wlan0}
-${upspeedgraph wlan0}
-ULS:${upspeed wlan0} $alignr total: ${totalup wlan0}
+${color}${if_up wlp0s2f1u2}${voffset -1}${voffset -7}${font Santana:bold:size=8}NETWORK LOAD${hr 2}${voffset 7}
+${color}${font Santana:normal:size=8}${voffset 5}ESSID: $alignr ${wireless_essid wlp0s2f1u2}
+Connection quality: $alignr ${wireless_link_qual_perc wlp0s2f1u2}%
+${downspeedgraph wlp0s2f1u2}
+DLS:${downspeed wlp0s2f1u2} $alignr total: ${totaldown wlp0s2f1u2}
+${upspeedgraph wlp0s2f1u2}
+ULS:${upspeed wlp0s2f1u2} $alignr total: ${totalup wlp0s2f1u2}
 ${else}${if_up eth0}
 ${voffset -1}${voffset -7}${font Santana:bold:size=8} ETHO LOAD ${hr 2}${voffset 7}
 ${font Santana:normal:size=8}IP local address: $alignr ${addr eth0}
@@ -125,22 +109,17 @@ DLS:${downspeed eth0} kb/s $alignr total: ${totaldown eth0}
 ${upspeedgraph eth0}
 ULS:${upspeed eth0} kb/s $alignr total: ${totalup eth0}${endif}${endif}
 #====================================NETWORK=INFO===================================================
-${color}${font Santana:bold:size=8}NETWORK INFO ${hr 2}
-${color}${font Santana:normal:size=8}Gateway address: ${alignr}${gw_ip}
-${color}${font Santana:normal:size=8}Local address: $alignr${addr wlan0}
-${color}${font Santana:normal:size=8}Public address: ${alignr}${execi 1000 wget http://checkip.dyndns.org/ -q -O - | grep -Eo '\<[[:digit:]]{1,3}(\.[[:digit:]]{1,3}){3}\>'}
-#=====================================TEMPERATURE===================================================
-${color}${font Santana:bold:size=8}Temperature ${hr 2}
-#this is reddhawk's CPU in Celcius edited by reprise. under it is CPU temp in Fahrenheit by reprise.
-#${color}${font Santana:normal:size=8}CPU: ${alignr} ${exec sensors | grep 'Physical id 0' | cut -c18-21}C
-${color}${font Santana:normal:size=8}CPU: ${alignr} ${execi 2 acpi -t -f | grep 2: | awk '{print $4}'}°F
-HDD:${alignr}${hddtemp /dev/sda}
+#${color}${font Santana:bold:size=8}NETWORK INFO ${hr 2}
+#${color}${font Santana:normal:size=8}Gateway address: ${alignr}${gw_ip}
+#${color}${font Santana:normal:size=8}Local address: $alignr${addr wlp0s2f1u2}
+#${color}${font Santana:normal:size=8}Public address: ${alignr}${execi 1000 wget http://checkip.dyndns.org/ -q -O - | grep -Eo '\<[[:digit:]]{1,3}(\.[[:digit:]]{1,3}){3}\>'}
+
 #=====================================TOP=MEM-USERS=================================================
-#${color}${font Santana:bold:size=8}Top Memory Users: ${hr 2}${color}
-#${top_mem name 1} ${alignr}${top_mem mem 1}
-#${top_mem name 2} ${alignr}${top_mem mem 2}
-#${top_mem name 3} ${alignr}${top_mem mem 3}
-#${top_mem name 4} ${alignr}${top_mem mem 4}
-#${top_mem name 5} ${alignr}${top_mem mem 5}
+${color}${font Santana:bold:size=8}TOP MEM USERS: ${hr 2}${color}${font Santana:normal:size=8}
+${top_mem name 1} ${alignr}${top_mem mem 1}
+${top_mem name 2} ${alignr}${top_mem mem 2}
+${top_mem name 3} ${alignr}${top_mem mem 3}
+${top_mem name 4} ${alignr}${top_mem mem 4}
+${top_mem name 5} ${alignr}${top_mem mem 5}
 
 
