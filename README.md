@@ -37,10 +37,30 @@ Icon= ...   : Change this path if you want to use the icon provided in this repo
 
 Once you're done editing the desktop entry, put the file into /usr/share/applications.  it will then appear as an executable icon in your application drawers.
 
-More about desktop entries are on [freedesktop.org](https://standards.freedesktop.org/desktop-entry-spec/latest/).
-
 ### Screenshots
 
 #####rightrc
 
 ![alt tag](https://github.com/reprise5/CrystalConky/blob/master/rightrc-screenshot.png)
+![alt tag](https://github.com/reprise5/CrystalConky/blob/master/right-rc2-screenshot.png)
+
+###Notes:
+
+**right-rc**
+
+right rc was written for my laptop with 4 cores.  It displays elements such as battery and wireless connection information that may be irrelevant on a desktop.  Edit this file to fit your needs, such as removing.duplicating code because your machine doesn't have 4 cores.
+
+**right-rc2**
+
+right-rc2 was written for my office desktop.  it only has 2 cores, and the network device name is wlp0s2f1u2.  If the networking information won't display for you, it's because the code is looking at the wrong device.  run `ifconfig` to find your device, and replace every instance of wlp0s2f1u2 with your networking device name.  
+
+domain and OS names are also hard coded.
+
+
+
+
+###REFERENCES
+
+More about desktop entries: [freedesktop.org](https://standards.freedesktop.org/desktop-entry-spec/latest/).
+
+More about conky Objects/variables: [conky.sourceforge.net](http://conky.sourceforge.net/variables.html).
