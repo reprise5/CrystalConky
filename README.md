@@ -27,11 +27,10 @@ The path on the .desktop file are *MY* paths.  in order to use it, you must edit
 ```
 [Desktop Entry]
 Categories=Utility;System;
-Exec=sh "/home/reprise/conkyScripts/CrystalConk/config/startconky.sh"
-Icon=/home/reprise/Dropbox/3 Photos/Shortcut Icons/conk.png
+Exec=sh "/home/user/Documents/conky/CrystalConk/config/startconky.sh"
+Icon=/usr/share/pixmaps/conk.png
 ```
 Categories: where the app is going to show up in your app drawers, you may change this to reflect your needs, or leave it
-
 Exec= ...   : you must change this to put the path of startconky.sh on your machine.                                             
 Icon= ...   : Change this path if you want to use the icon provided in this repo.  I suggest  `Icon=/usr/share/pixmaps/conk.png` as the entry.  then you need to put conk.png in /usr/share/pixmaps, which requires root.
 
