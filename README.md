@@ -12,15 +12,15 @@ This conky is a sidebar that shows various things such as :
   * Network info
   * Temperatures.
   
-###Runtime Configuration Files
+### Runtime Configuration Files
 
 There's several versions of the config file, they're not meant to be run together.  Only one at a time.
 The runtime configuration files are located in /config.
 
-###startconky.sh
+### startconky.sh
 This file I wrote is meant to start conky including a config file from this repository.  It is here you write/specify the name of the rc file you want to use.  then you give the script execute permissions, and use it to run conky.  the rc files in this repository are only meant to be run alone, so only include the one you want in the script.
 
-###CrystalConk.desktop
+### CrystalConk.desktop
 I created a .desktop entry so that you can run conky with the runtime configs found here, from your apps menu.  All you have to di is specify the path to startconky.sh, and the path to the icon (optional).  you can store the files anywhere, jsut make sure to change the execute entry to include the path.
 
 The path on the .desktop file are *MY* paths.  in order to use it, you must edit the file.  It's simple, an excerpt of the desktop entry is as follows:
@@ -38,12 +38,12 @@ Once you're done editing the desktop entry, put the file into /usr/share/applica
 
 ### Screenshots
 
-#####rightrc
+##### rightrc
 
-![alt tag](https://github.com/reprise5/CrystalConky/blob/master/rightrc-screenshot.png)
+![alt tag](https://github.com/reprise5/CrystalConky/blob/master/rightrc-screenshot.png)  
 ![alt tag](https://github.com/reprise5/CrystalConky/blob/master/right-rc2-screenshot.png)
 
-###Notes:
+### Notes:
 
 **right-rc**
 
@@ -58,7 +58,7 @@ domain and OS names are also hard coded.
 
 
 
-###REFERENCES
+### REFERENCES
 
 More about desktop entries: [freedesktop.org](https://standards.freedesktop.org/desktop-entry-spec/latest/).
 
