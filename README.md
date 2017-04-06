@@ -38,10 +38,11 @@ Once you're done editing the desktop entry, put the file into /usr/share/applica
 
 ### Screenshots
 
-##### rightrc
+rightrc                    |  rightrc2
+:-------------------------:|:-------------------------:
+![alt tag](https://github.com/reprise5/CrystalConky/blob/master/rightrc-screenshot.png)  |  ![alt tag](https://github.com/reprise5/CrystalConky/blob/master/right-rc2-screenshot.png)
 
-![alt tag](https://github.com/reprise5/CrystalConky/blob/master/rightrc-screenshot.png)  
-![alt tag](https://github.com/reprise5/CrystalConky/blob/master/right-rc2-screenshot.png)
+    
 
 ### Notes:
 
