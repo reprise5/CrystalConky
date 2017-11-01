@@ -40,7 +40,7 @@ Once you're done editing the desktop entry, put the file into /usr/share/applica
 
 rightrc                    |  rightrc2
 :-------------------------:|:-------------------------:
-![alt tag](https://github.com/reprise5/CrystalConky/blob/master/right-rc-Bildshirmfoto.png)  |  ![alt tag](https://github.com/reprise5/CrystalConky/blob/master/right-rc2-Bildschirmfoto)
+![alt tag](https://github.com/reprise5/CrystalConky/blob/master/right-rc-Bildshirmfoto.png)  |  ![alt tag](https://github.com/reprise5/CrystalConky/blob/master/right-rc2-Bildschirmfoto.png)
 
     
 
