@@ -40,22 +40,29 @@ Once you're done editing the desktop entry, put the file into /usr/share/applica
 
 rightrc                    |  rightrc2
 :-------------------------:|:-------------------------:
-![alt tag](https://github.com/reprise5/CrystalConky/blob/master/rightrc-screenshot.png)  |  ![alt tag](https://github.com/reprise5/CrystalConky/blob/master/right-rc2-screenshot.png)
+![alt tag](https://github.com/reprise5/CrystalConky/blob/master/right-rc-Bildshirmfoto.png)  |  ![alt tag](https://github.com/reprise5/CrystalConky/blob/master/right-rc2-Bildschirmfoto)
 
     
 
 ### Notes:
 
-**right-rc**
+**right-rc, v1.9.0**
 
 right rc was written for my laptop with 4 cores.  It displays elements such as battery and wireless connection information that may be irrelevant on a desktop.  Edit this file to fit your needs, such as removing.duplicating code because your machine doesn't have 4 cores.
 
-**right-rc2**
+Not compatible with conky 1.10.0.
+
+**right2-rc, v1.9.0**
 
 right-rc2 was written for my office desktop.  it only has 2 cores, and the network device name is wlp0s2f1u2.  If the networking information won't display for you, it's because the code is looking at the wrong device.  run `ifconfig` to find your device, and replace every instance of wlp0s2f1u2 with your networking device name.  
 
 domain and OS names are also hard coded.
+Not compatible with conky 1.10.0.
 
+**rightNew-rc, v1.10.0**
+
+Written for my virtualbox and uses new syntax for runtime configurations.
+compatible for conky 1.10.0
 
 
 

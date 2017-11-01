@@ -1,0 +1,142 @@
+
+-- =======================================================================
+-- Project: Crystal                                              
+-- Module: right                                                                      
+-- =======================================================================
+
+conky.config = {
+    alignment = 'top_right',
+    background = false,
+    border_width = 1,
+    cpu_avg_samples = 2,
+
+    draw_borders = false,
+    draw_graph_borders = false,
+    draw_outline = false,
+    draw_shades = false,
+
+    use_xft = true,
+    font = 'Sans:size=8',
+    gap_x = 10,
+    gap_y = 30,
+    minimum_height = 200,
+    minimum_width = 200,
+
+    net_avg_samples = 2,
+    no_buffers = true,
+    out_to_console = false,
+    out_to_stderr = false,
+    extra_newline = false,
+
+    own_window = true,
+    own_window_class = 'Conky',
+    own_window_type = 'dock',		-- #Will dissapear on click without this.
+    own_window_transparent = true,
+    own_window_hints = 'undecorated,below,skip_taskbar,sticky,skip_pager',
+
+    stippled_borders = 0,
+    update_interval = 1.0,
+
+    uppercase = false,
+    use_spacer = 'none',
+
+    show_graph_scale = false,
+    show_graph_range = false,
+
+    default_outline_color = 'white',
+    default_shade_color = 'white',	
+    default_color = 'white',	
+
+	--     # Color Palette #     --
+	color1 = '00FFFF',	-- Light blue
+	color2 = '0080FF',	-- mid blue	
+	color3 = '0000FF',	-- dark blue
+	color4 = '7F00FF',	-- mid purple
+	color5 = 'FF00FF',	-- Hot pink	
+	color6 = 'FF0080',	-- Pink Pink
+	--     # Clock colors #     --
+	color7 = '0045AA',	-- Dark Blue
+	color8 = '0094FF'	-- Light blue
+}
+
+conky.text = [[
+#=============================================SUMMARY===============================================
+${color4}$alignc${font Santana:bold:size=8}
+${font Santana:bold:size=10}SYSTEM ${hr 2}${font Santana:normal:size=8}${color6}
+
+Host:$alignr$nodename
+Uptime:$alignr$uptime
+Innotek %: $alignr${battery_percent BAT0}%
+#Batt State: $battery_state
+Kernel: $alignr$kernel
+File System: $alignr${fs_type}
+
+#=============================================BATTERY===============================================
+${color4}${font monospace:bold:size=10}BATTERY ${hr 2}
+${color6}${font Santana:normal:size=8}Time ${battery_time BAT0}$alignr Remaining: ${battery_percent BAT0}%
+
+${if_match ${battery_percent BAT0} <=15}${color red}$battery_bar ${endif} ${if_match ${battery_percent BAT0} <=30}#${color yellow}$battery_bar ${endif} ${if_match ${battery_percent BAT0} >30}${color green}$battery_bar ${endif}
+#===============================================CLOCK===============================================
+$alignc${color7}${voffset 7}${font D3 Euronism:size=32}${time %H}${voffset -10} : ${voffset 10}${color2}${time %M}${voffset -10}
+#:${voffset 10}#${goto 162}${time %S}${font} <-- The seconds hand
+#===============================================LOAD================================================
+${color4}${font monospace:bold:size=10}LOAD${hr 2}${color}${color}
+
+#${font Santana:bold:size=8}${execi 1000 cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //'| uniq}${hr 2}
+#${execi 300 sensors | grep temp1 | cut --characters=15,16,17}°C
+#CPU 0 is reserved for *average* core load and doesn't point to actual physical core 0.
+${font Santana:normal:size=8}
+${color5}Core 1: ${cpu cpu1}%
+${cpugraph cpu1 FF0000 0000FF}
+${color5}Core 2: ${cpu cpu2}%
+${cpugraph cpu2 FF0000 0000FF}
+#==========================================MEMORY===================================================
+${color4}${font Santana:bold:size=10}MEMORY ${hr 2}
+
+${color6}${font Santana:normal:size=8}RAM $alignc $mem / $memmax $alignr $memperc%
+${color2}$membar
+#=========================================DISK=USAGE================================================
+#Use format:
+#${color}Disk: ${fs_used /path/disk} of ${fs_size /path/disk} used
+
+${color4}${font Santana:bold:size=10}DISKS ${hr 2}
+
+#anyone's home partition
+${color6}${font Santana:normal:size=8}/ $alignc ${fs_used /} / ${fs_size /} $alignr ${fs_used_perc /}%
+${color2}${fs_bar /}
+##My Attic Partition:
+#You must change this to reflect your own desired partitions or drives.  this is specific to my Attic partition.
+#${font Santana:normal:size=8}Attic $alignc ${fs_used /media/reprise/Attic} / ${fs_size /media/reprise/Attic} ##$#alignr ${fs_used_perc /media/reprise/Attic}%
+#${fs_bar /media/reprise/Attic}
+#=========================================NETWORK=LOAD===============================================
+${color}${if_up wlan0}${voffset -1}${voffset -7}${font Santana:bold:size=8}WLAN0 LOAD${hr 2}${voffset 7}
+#${color}${font Santana:normal:size=8}${voffset 5}ESSID: $alignr ${wireless_essid wlan0}
+Connection quality: $alignr ${wireless_link_qual_perc wlan0}%
+#${downspeedgraph wlan0}
+#DLS:${downspeed wlan0} $alignr total: ${totaldown wlan0}
+#${upspeedgraph wlan0}
+#ULS:${upspeed wlan0} $alignr total: ${totalup wlan0}
+${else}${if_up eth0}
+${voffset -1}${voffset -7}${font Santana:bold:size=8} ETHO LOAD ${hr 2}${voffset 7}
+#${downspeedgraph eth0}
+DLS:${downspeed eth0} kb/s $alignr total: ${totaldown eth0}
+#${upspeedgraph eth0}
+ULS:${upspeed eth0} kb/s $alignr total: ${totalup eth0}${endif}${endif}
+#=====================================TEMPERATURE===================================================
+${color4}${font Santana:bold:size=8}TEMP & I/O ${hr 2}
+#this is reddhawk's CPU in Celcius edited by reprise. under it is CPU temp in Fahrenheit by reprise.
+#${color}${font Santana:normal:size=8}CPU: ${alignr} ${exec sensors | grep 'Physical id 0' | cut -c18-21}C
+#${font Santana:normal:size=8}CPU: ${alignr} ${execi 2 acpi -t -f | grep 2: | awk '{print $4}'}°F
+#HDD:${alignr}${hddtemp /dev/sda}
+#=========================================I/O=INFOS=================================================
+${diskiograph /dev/sda FFEE00 E000E0}${color}
+${color2}I/O /dev/sda: ${alignr}${diskio /dev/sda}
+
+#=====================================TOP=MEM=USERS=================================================
+${color4}${font Santana:bold:size=8}TOP MEM USERS${hr 2}${color}${font Santana:normal:size=8}{$color6}
+${top_mem name 1} ${alignr}${top_mem mem 1}
+${top_mem name 2} ${alignr}${top_mem mem 2}
+${top_mem name 3} ${alignr}${top_mem mem 3}
+${top_mem name 4} ${alignr}${top_mem mem 4}
+${top_mem name 5} ${alignr}${top_mem mem 5}
+]]; 

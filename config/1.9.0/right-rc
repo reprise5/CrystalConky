@@ -1,0 +1,155 @@
+# -- ======================================================================= --
+# --  Theme: Crystal Conky                                                   --
+# --  Module: right                                                          --
+# -- ======================================================================= --
+# - Conky settings - #
+
+update_interval 1.00
+total_run_times 0
+net_avg_samples 1
+cpu_avg_samples 1
+imlib_cache_size 0
+double_buffer yes
+no_buffers yes
+
+# - Text settings - #
+
+use_xft yes
+xftfont Sans:size=8
+xftalpha 1
+override_utf8_locale yes
+text_buffer_size 2048
+
+# - Window specifications - #
+
+own_window_class Conky
+own_window yes
+own_window_type normal
+own_window_argb_visual yes
+own_window_argb_value 180
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+double_buffer yes
+minimum_size 200 200
+maximum_width 250
+draw_shades yes
+draw_outline no
+draw_borders no
+draw_graph_borders no
+default_color 000000
+default_shade_color black
+default_outline_color white
+#Heading Color: #FA9600
+#New Default Color: #0196FA
+alignment top_right
+gap_x 10
+gap_y 30
+no_buffers yes
+uppercase no
+
+color1 7EA8B4   #Banners      || White`
+color2 7EB48A   #Secondary    || Yellow
+color3 8DB47E   #Clock1       || Purple
+color4 7E8DB4   #CLock2       || Red
+#LOAD GRADIENT: FF0000 0000FF || Hard blue -> Hard Red
+#I/O Gradient: FFEE00 E000E0  || Hard yellow -> Pink
+#=============================================SUMMARY===============================================
+TEXT
+${color1}
+${font Santana:bold:size=10} SYSTEM ${hr 2} ${font Santana:normal:size=8}{$color2}
+
+Host:$alignr$nodename
+Uptime:$alignr$uptime
+Battery %: $alignr${battery_percent BAT0}%
+#Batt State: $battery_state
+Kernel: $alignr$kernel
+File System: $alignr${fs_type}
+#=============================================BATTERY===============================================
+${color1}
+${font monospace:bold:size=10}BATTERY ${hr 2} ${color2}
+${font Santana:normal:size=8}Time ${battery_time BAT0}$alignr Remaining: ${battery_percent BAT0}%
+${if_match ${battery_percent BAT0} <=15}${color red}$battery_bar ${endif} ${if_match ${battery_percent BAT0} <=30}${color yellow}$battery_bar ${endif} ${if_match ${battery_percent BAT0} >30}${color #00FF01}$battery_bar ${endif}
+#===============================================CLOCK===============================================
+${color3}${voffset 7}${font D3 Euronism:size=32}${time %H}${voffset -10} : ${voffset 10}${color4}${time %M}${voffset -10}
+#:${voffset 10}#${goto 162}${time %S}${font} <-- The seconds hand
+#===============================================LOAD================================================
+${color1}${font monospace:bold:size=10}LOAD${hr 2}${color2}
+#${font Santana:bold:size=8}${execi 1000 cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //'| uniq}${hr 2}
+#${execi 300 sensors | grep temp1 | cut --characters=15,16,17}°C
+#CPU 0 is reserved for *average* core load and doesn't point to actual physical core 0.
+${font Santana:normal:size=8}
+Core 1: ${cpu cpu1}%
+${cpugraph cpu1 BED45E D45E83}
+Core 2: ${cpu cpu2}%
+${cpugraph cpu2 BED45E D45E83}
+Core 3: ${cpu cpu3}%
+${cpugraph cpu3 BED45E D45E83}
+Core 4: ${cpu cpu4}%
+${cpugraph cpu4 BED45E D45E83}
+#${cpubar cpu0}
+#==========================================MEMORY===================================================
+${color1}
+${font Santana:bold:size=10}MEMORY ${hr 2}${color2}
+
+${font Santana:normal:size=8}RAM $alignc $mem / $memmax $alignr $memperc%
+$membar
+#=========================================DISK=USAGE================================================
+
+${color1}${font Santana:bold:size=10}DISKS ${hr 2}
+# anyone's home partition
+${color2}${font Santana:normal:size=8}/ $alignc ${fs_used /} / ${fs_size /} $alignr ${fs_used_perc /}%
+${fs_bar /}
+#My Attic Partition:
+#You must change this to reflect your own desired partitions or drives.  this is specific to my Attic partition.
+
+${font Santana:normal:size=8}Attic $alignc ${fs_used /media/reprise/Attic} / ${fs_size /media/reprise/Attic} $alignr ${fs_used_perc /media/reprise/Attic}%
+${fs_bar /media/reprise/Attic}
+#~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ r e m o v a b l e ~ m e d i a ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+#${if_mounted /media/reprise/REPRISEUFD3}${font Santana:normal:size=8}REPRISEUFD3 $alignc ${fs_used /media/reprise/REPRISEUFD3} / ${fs_size /media/reprise/REPRISEUFD3} $alignr ${fs_used_perc /media/reprise/REPRISEUFD3}%
+#${fs_bar /media/reprise/REPRISEUFD3}${endif}
+#HANSEN, MP3 player, FiiO X1
+#${if_mounted /media/reprise/HANSEN}${font Santana:normal:size=8}HANSEN $alignc ${fs_used /media/reprise/HANSEN} / ${fs_size /media/reprise/HANSEN} $alignr ${fs_used_perc /media/reprise/HANSEN}%
+#${fs_bar /media/reprise/HANSEN}${endif}
+#Windows10 Partition
+#${fs_bar /media/reprise/Windows10}${endif}
+#=========================================NETWORK=LOAD===============================================
+#${color1}${if_up wlan0}${voffset -1}${voffset -7}${font Santana:bold:size=8}WLAN0 LOAD${hr 2}${voffset 7}
+#${color1}${font Santana:normal:size=8}${voffset 5}ESSID: $alignr ${wireless_essid wlan0}
+#Connection quality: $alignr ${wireless_link_qual_perc wlan0}%
+#${downspeedgraph wlan0}
+#DLS:${downspeed wlan0} $alignr total: ${totaldown wlan0}
+#${upspeedgraph wlan0}
+#ULS:${upspeed wlan0} $alignr total: ${totalup wlan0}
+#${else}${if_up eth0}
+#${voffset -1}${voffset -7}${font Santana:bold:size=8} ETHO LOAD ${hr 2}${voffset 7}
+#${downspeedgraph eth0}
+#DLS:${downspeed eth0} kb/s $alignr total: ${totaldown eth0}
+#${upspeedgraph eth0}
+#ULS:${upspeed eth0} kb/s $alignr total: ${totalup eth0}${endif}${endif}
+#====================================NETWORK=INFO===================================================
+
+${color1}${font Santana:bold:size=8}NETWORK INFO ${hr 2}${color2}
+${font Santana:normal:size=8}${voffset 5}ESSID: $alignr ${wireless_essid wlan0}
+Connection quality: $alignr ${wireless_link_qual_perc wlan0}%
+${font Santana:normal:size=8}Gateway address: ${alignr}${gw_ip}
+${font Santana:normal:size=8}Local address: $alignr${addr wlan0}
+${font Santana:normal:size=8}Public address: ${alignr}${execi 1000 wget http://checkip.dyndns.org/ -q -O - | grep -Eo '\<[[:digit:]]{1,3}(\.[[:digit:]]{1,3}){3}\>'}
+
+#=====================================TEMPERATURE===================================================
+${color1}${font Santana:bold:size=8}TEMP & I/O ${hr 2}${color2}
+#${font Santana:normal:size=8}CPU: ${alignr} ${exec sensors | grep 'Physical id 0' | cut -c18-21}C
+${font Santana:normal:size=8}CPU: ${alignr} ${execi 2 acpi -t -f | grep 2: | awk '{print $4}'}°F
+#HDD:${alignr}${hddtemp /dev/sda}
+#=========================================I/O=INFOS=================================================
+${diskiograph /dev/sda D4AF5E 5E83D4}${color1}
+I/O /dev/sda: ${alignr}${diskio /dev/sda}
+#=====================================TOP=MEM=USERS=================================================
+#${color}${font Santana:bold:size=8}Top Memory Users: ${hr 2}${color}
+#${top_mem name 1} ${alignr}${top_mem mem 1}
+#${top_mem name 2} ${alignr}${top_mem mem 2}
+#${top_mem name 3} ${alignr}${top_mem mem 3}
+#${top_mem name 4} ${alignr}${top_mem mem 4}
+#${top_mem name 5} ${alignr}${top_mem mem 5}
+
+#${image ./test.png -p 21,29 -s 200x200}

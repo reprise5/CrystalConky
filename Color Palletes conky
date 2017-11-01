@@ -1,0 +1,55 @@
+Name: Primary Colors
+Start:
+Type:
+Wheel:
+
+color1 FFFFFE   #Banners      || White
+color2 E0AD00   #Secondary    || Yellow
+color3 9900E0   #Clock1       || Purple
+color4 E02900   #CLock2       || Red
+#LOAD GRADIENT: FF0000 0000FF || Hard blue -> Hard Red
+#I/O Gradient: FFEE00 E000E0  || Hard yellow -> Dark Pink
+
+================================================================
+Name: Mint
+Start: #A8B47E or #BEC79E
+Type: Analogous
+Wheel: RGB
+
+color1 7EA8B4   #Banners      || Pale blue
+color2 7EB48A   #Secondary    || Pale algae green
+color3 8DB47E   #Clock1       || Pale olive green
+color4 7E8DB4   #CLock2       || pale stone blue
+#LOAD GRADIENT: BED45E D45E83 || Kitchen yellow -> apple red
+#I/O Gradient:  D4AF5E 5E83D4 || Kitchen Orange -> Denim blue
+
+Full Palette:
+BEC79E      Cream
+A9C79E      Olive Green
+9EC7A7      Algae Green
+9EC7BB      Ocean Sky Blue
+9EBEC7      Light Denim Blue
+9EA9C7      Light Faded Purple
+
+================================================================
+Name: Pink & Purple
+Start: #00FFFF
+Type: Analogous
+Wheel: RGB
+
+color1 = '7F00FF',  -- Banners      || Mid Purple   
+color2 = 'FF0080'   -- Secondary    || Pink Pink
+color3 = '0045AA',	-- Clock 1      || Dark Blue
+color4 = '0094FF'	-- Clock 2      || Light Blue
+--Load Gradient:    FF0000 0000FF   || Hard Blu -> Hard Red
+--I/O Gradient:     FFEE00 E000E0   || Yellow -> Dark Pink
+
+Full Pallette:
+00FFFF	Light Blue
+0080FF	Mid Blue
+0000FF	Dark Blue
+7F00FF	Mid purple
+FF00FF	Red Pink
+FF0080	Hot Pink
+
+================================================================
