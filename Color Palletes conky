@@ -38,8 +38,8 @@ Type: Analogous
 Wheel: RGB
 
 color1 = '7F00FF',  -- Banners      || Mid Purple   
-color2 = 'FF0080'   -- Secondary    || Pink Pink
-color3 = '0045AA',	-- Clock 1      || Dark Blue
+color2 = 'FF0080',  -- Secondary    || Pink Pink
+color3 = '0045AA',  -- Clock 1      || Dark Blue
 color4 = '0094FF'   -- Clock 2      || Light Blue
 --Load Gradient:    FF0000 0000FF   || Hard Blu -> Hard Red
 --I/O Gradient:     FFEE00 E000E0   || Yellow -> Dark Pink
@@ -59,9 +59,9 @@ Type: Neutral
 Wheel: RGB
 
 color1 = 'B28DE3',  -- Banners      || Easter Purple
-color2 = '8DBEE3'   -- Secondary    || Cape Cod beach blue
-color3 = 'FED5B1',	-- Clock 1      || light peach/tan
-color4 = 'C88DE3'	  -- Clock 2      || light purple
+color2 = '8DBEE3',  -- Secondary    || Cape Cod beach blue
+color3 = 'FED5B1',  -- Clock 1      || light peach/tan
+color4 = 'C88DE3'   -- Clock 2      || light purple
 --Load Gradient:    D4855E 5EADD4   || Kitchen yellow -> Sky Blue
 --I/O Gradient:     D4AF5E 5E83D4   || Kitchen Orange -> Denim blue
 
