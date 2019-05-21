@@ -34,7 +34,7 @@ Categories: where the app is going to show up in your app drawers, you may chang
 Exec= ...   : you must change this to put the path of startconky.sh on your machine.                                             
 Icon= ...   : Change this path if you want to use the icon provided in this repo.  I suggest  `Icon=/usr/share/pixmaps/conk.png` as the entry.  then you need to put conk.png in /usr/share/pixmaps, which requires root.
 
-Once you're done editing the desktop entry, put the file into /usr/share/applications.  it will then appear as an executable icon in your application drawers.
+Once you're done editing the desktop entry, put the file into `/usr/share/applications`.  it will then appear as an executable icon in your application drawers.
 
 ### Screenshots
 
